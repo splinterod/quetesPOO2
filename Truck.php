@@ -1,8 +1,9 @@
 <?php
 
 require_once 'Vehicle.php';
+require_once 'LightableInterface.php';
 
-class Truck extends Car
+class Truck extends Vehicle implements LightableInterface
 {
     /**
      * @var int
@@ -14,6 +15,23 @@ class Truck extends Car
      * @var int
      */
     private $load = 0;
+    /**
+     * @var string
+     */
+
+    protected $energy;
+
+    /**
+     * @var int
+     */
+    protected $energyLevel;
+    /**
+     * @var bollean
+     */
+    /**
+     * @var bollean
+     */
+    protected $light = false;
 
     /**
      * constructor classe (idem Class Car + $loadCapactiy
@@ -22,6 +40,7 @@ class Truck extends Car
     public function __construct(string $color, int $nbSeats, string $energy, int $loadCapacity)
     {
         parent::__construct($color, $nbSeats, $energy);
+        $this->energy = $energy;
         $this->loadCapacity = $loadCapacity;
     }
 
@@ -63,4 +82,22 @@ class Truck extends Car
             return "truck is full";
         }
     }
+
+    public function switchOn()
+    {
+
+        $this->light = true;
+            return true;
+
+
+    }
+
+    public function switchOff()
+    {
+        $this->light = false;
+        return false;
+
+    }
+
+
 }

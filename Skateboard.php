@@ -1,7 +1,8 @@
 <?php
 
+require_once 'Vehicle.php';
 
-class Skateboard
+class Skateboard extends Vehicle
 {
 
 }

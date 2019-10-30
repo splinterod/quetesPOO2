@@ -1,34 +1,47 @@
 <?php
 
-
+require 'Vehicle.php';
 require 'Truck.php';
+require 'Car.php';
+require 'Highway.php';
+require 'MotorWay.php';
+require 'PedestrianWay.php';
+require 'ResidentialWay.php';
+require 'Skateboard.php';
+require 'Bicycle.php';
 
 
-$bigTruck = new Truck('vert',3, 'mazout',25);
-var_dump($bigTruck);
+$bigTruck = new Truck('vert', 3, 'mazout', 25);
+$bigTruck2 = new Truck('vert', 23, 'electric', 505);
+$joliVoiture = new Car('blouge', 4,'Mazout');
+$mocheVelo = new bicycle ('bleu cacatoes', 1);
+
+$grandeRoute= new MotorWay();
+$grandeRoute->addVehicule($joliVoiture);
+var_dump($grandeRoute);
+
+$cheminpedestre = new PedestrianWay();
+$petiteRoute= new   ResidentialWay();
+
+$bart= new Skateboard('vert',1, 'foot');
 
 
+$petiteRoute->addVehicule($bigTruck);
+$petiteRoute->addVehicule($bart);
+var_dump($petiteRoute);
 
-echo $bigTruck->addLoad(10);
-var_dump($bigTruck);
-echo $bigTruck->addLoad(10);
+echo $bigTruck->switchOn();
 echo "<br>";
-echo $bigTruck->addLoad(10);
-echo "<br>";
-echo $bigTruck->isFilled();
+echo $bigTruck->switchOff();
 
-$bigTruck2 = new Truck('vert',23, 'electric',505);
+echo $joliVoiture->switchOn();
+
+echo $mocheVelo -> switchOn();
+echo $mocheVelo->setCurrentSpeed(20);
+echo $mocheVelo-> switchOn();
 
 
-echo $bigTruck2->addLoad(100);
-echo $bigTruck2->addLoad(125);
-echo "<br>";
-echo $bigTruck2->addLoad(50);
 
-echo "<br>";
-echo $bigTruck2->isFilled();
-echo $bigTruck2->forward();
-echo '<br> Vitesse du camion : ' . $bigTruck2->getCurrentSpeed() . ' km/h' . '<br>';
-echo $bigTruck2->brake();
-echo '<br> Vitesse du camion : ' . $bike->getCurrentSpeed() . ' km/h' . '<br>';
-echo $bigTruck2->brake();
+
+
+
