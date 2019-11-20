@@ -9,6 +9,7 @@ require 'PedestrianWay.php';
 require 'ResidentialWay.php';
 require 'Skateboard.php';
 require 'Bicycle.php';
+require 'Speedometer.php';
 
 
 $bigTruck = new Truck('vert', 3, 'mazout', 25);
@@ -39,8 +40,8 @@ echo $joliVoiture->switchOn();
 echo $mocheVelo -> switchOn();
 echo $mocheVelo->setCurrentSpeed(20);
 echo $mocheVelo-> switchOn();
-
-
+echo "<br>";
+echo Speedometer::convertKmToMiles(10);
 
 
 
